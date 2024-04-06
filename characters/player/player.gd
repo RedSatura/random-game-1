@@ -5,11 +5,10 @@ extends CharacterBody2D
 func _ready():
 	pass
 	
-func _physics_process(delta):
-	
+func _physics_process(_delta):
 	move_and_slide()
 	
-func _unhandled_input(event):
+func _unhandled_input(_event):
 	velocity.x = Input.get_axis("move_left", "move_right")
 	velocity.y = Input.get_axis("move_up", "move_down")
 	

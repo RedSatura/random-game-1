@@ -6,8 +6,10 @@
 radius = 16.0
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
+motion_mode = 1
 script = ExtResource("1_3erpe")
-SPEED = 150
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_7tvpw")
@@ -17,3 +19,8 @@ shape = SubResource("CircleShape2D_7tvpw")
 [node name="Polygon2D" type="Polygon2D" parent="."]
 color = Color(0, 0.286275, 0.541176, 1)
 polygon = PackedVector2Array(-16, -16, -16, 16, 16, 16, 16, -16)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+
+[node name="WeaponComponent" type="Node2D" parent="."]
