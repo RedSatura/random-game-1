@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://o48sgcwfpe1x"]
+
+[ext_resource type="PackedScene" uid="uid://dpjgkhqwfpt3e" path="res://characters/player/player.tscn" id="1_d4f5f"]
+[ext_resource type="Texture2D" uid="uid://b2dyf64yjuci" path="res://maps/test/grass.png" id="1_ta8hh"]
+[ext_resource type="PackedScene" uid="uid://ci6428oyg4xbh" path="res://characters/enemy/enemy.tscn" id="3_0gyya"]
+
+[node name="TestMap" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_repeat = 2
+offset_right = 1024.0
+offset_bottom = 600.0
+texture = ExtResource("1_ta8hh")
+stretch_mode = 1
+
+[node name="Player" parent="." instance=ExtResource("1_d4f5f")]
+position = Vector2(544, 344)
+
+[node name="Enemy" parent="." instance=ExtResource("3_0gyya")]
+position = Vector2(256, 192)
