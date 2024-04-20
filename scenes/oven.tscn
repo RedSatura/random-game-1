@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://ee0w3l8jl2ct"]
+
+[ext_resource type="Script" path="res://scenes/oven.gd" id="1_7cu7j"]
+[ext_resource type="Texture2D" uid="uid://dt141j88gcw7l" path="res://assets/oven.png" id="1_t4u5d"]
+[ext_resource type="Theme" uid="uid://b710ycuosyphn" path="res://default_theme.tres" id="3_a0mdm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cr037"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eanxo"]
+size = Vector2(24, 24)
+
+[node name="Oven" type="StaticBody2D"]
+script = ExtResource("1_7cu7j")
+
+[node name="BulletDetector" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletDetector"]
+visible = false
+shape = SubResource("RectangleShape2D_cr037")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_t4u5d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_eanxo")
+
+[node name="OvenInfo" type="Panel" parent="."]
+visible = false
+offset_left = -32.0
+offset_top = -47.0
+offset_right = 32.0
+offset_bottom = -12.0
+theme = ExtResource("3_a0mdm")
+
+[node name="Label" type="Label" parent="OvenInfo"]
+layout_mode = 2
+offset_right = 64.0
+offset_bottom = 23.0
+text = "Preparing..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="OvenInfo"]
+layout_mode = 2
+offset_top = 19.0
+offset_right = 64.0
+offset_bottom = 35.0
+theme = ExtResource("3_a0mdm")
+
+[connection signal="area_entered" from="BulletDetector" to="." method="_on_bullet_detector_area_entered"]
